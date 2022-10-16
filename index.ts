@@ -8,7 +8,7 @@ import { Donate } from './definition/donate.type';
 dotenv.config();
 const app = express();
 const token = process.env.MONO || '';
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 const http = setup(token);
 
 app.use(express.json());
