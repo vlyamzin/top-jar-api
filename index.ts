@@ -13,6 +13,10 @@ const http = setup(token);
 
 app.use(express.json());
 
+app.get('/', (req, res) => {
+    res.status(200).json({ message: 'ok' });
+});
+
 app.get('/user-info', async (req, res) => {
     try {
         const monoResponse = await http.get('/personal/client-info');
