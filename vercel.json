@@ -1,10 +1,4 @@
 {
   "version": 2,
-  "name": "top-jar-api",
-  "rewrites": [
-    {
-      "source": "/dist/(.*)",
-      "destination": "/dist"
-    }
-  ]
+  "name": "top-jar-api"
 }
