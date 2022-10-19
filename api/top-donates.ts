@@ -1,7 +1,7 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { setup } from '../services/http-client';
-import { Statement } from '../definition/statement.type';
-import { Donate } from '../definition/donate.type';
+import type { Statement } from '../definition/statement.type';
+import type { Donate } from '../definition/donate.type';
 
 const token = process.env.MONO || '';
 const http = setup(token);

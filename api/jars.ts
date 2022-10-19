@@ -13,8 +13,11 @@ export default async function (req: VercelRequest, res: VercelResponse) {
             return;
         }
         const jars: Jar[] = monoResponse.data.jars;
+        const name: string = monoResponse.data.name;
+
         res.status(200).json({
             jars: jars.map((j): JarBasic => ({ id: j.id, title: j.title })),
+            username: name
         });
     } catch (error) {
         console.log(error);
