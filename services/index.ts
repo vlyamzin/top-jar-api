@@ -1,15 +1,12 @@
-import * as dotenv from 'dotenv';
+import dotenv from 'dotenv';
 import express from 'express';
-import { setup } from './http-client';
-import { Jar, JarBasic } from './definition/jar.type';
-import { Statement } from './definition/statement.type';
-import { Donate } from './definition/donate.type';
+// import jarsAPI from '../api/jars'
+import type { VercelRequest, VercelResponse } from '@vercel/node';
 
 dotenv.config();
 const app = express();
 const token = process.env.MONO || '';
 const PORT = process.env.PORT || 5000;
-const http = setup(token);
 
 app.use(express.json());
 
@@ -31,22 +28,7 @@ app.use(express.json());
 //     }
 // });
 //
-// app.get('/jars', async (req, res) => {
-//     try {
-//         const monoResponse = await http.get('/personal/client-info');
-//         if (monoResponse.status !== 200) {
-//             res.status(400).json({ message: monoResponse.statusText });
-//             return;
-//         }
-//         const jars: Jar[] = monoResponse.data.jars;
-//         res.status(200).json({
-//             jars: jars.map((j): JarBasic => ({ id: j.id, title: j.title })),
-//         });
-//     } catch (error) {
-//         console.log(error);
-//         res.status(400).json({ message: 'Something went wrong' });
-//     }
-// });
+// app.get('/jars', (req, res) => jarsAPI(req as VercelRequest, res as unknown as VercelResponse));
 //
 // app.get('/top-donates', async (req, res) => {
 //     try {

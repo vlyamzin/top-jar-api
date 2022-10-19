@@ -2,7 +2,7 @@
   "name": "top-jar-api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "type": "module",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",

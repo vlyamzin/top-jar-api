@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { setup } from '../http-client';
+import { setup } from '../services/http-client';
 
 const token = process.env.MONO || '';
 const http = setup(token);

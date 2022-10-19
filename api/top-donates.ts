@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { setup } from '../http-client';
+import { setup } from '../services/http-client';
 import { Statement } from '../definition/statement.type';
 import { Donate } from '../definition/donate.type';
 
