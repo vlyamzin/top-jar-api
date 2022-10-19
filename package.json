@@ -8,7 +8,9 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "tsc": "tsc",
+    "test:api": "ts-node-esm services/index.ts"
   },
   "repository": {
     "type": "git",

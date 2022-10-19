@@ -1,4 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
+import type { AxiosInstance } from 'axios';
 import type { Jar, JarBasic } from '../definition/jar.type';
 import { setup } from '../services/http-client';
 
@@ -17,7 +18,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
 
         res.status(200).json({
             jars: jars.map((j): JarBasic => ({ id: j.id, title: j.title })),
-            username: name
+            username: name,
         });
     } catch (error) {
         console.log(error);

@@ -2,7 +2,10 @@
   "compilerOptions": {
     "experimentalDecorators": true,
     "esModuleInterop": true,
-    "useDefineForClassFields": false
+    "useDefineForClassFields": false,
   },
   "extends": "astro/tsconfigs/strict",
+  "ts-node": {
+    "esm": true
+  },
 }
