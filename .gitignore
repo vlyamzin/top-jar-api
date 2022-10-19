@@ -4,6 +4,7 @@
 /dist
 /tmp
 /out-tsc
+.output/
 
 # dependencies
 /node_modules
@@ -56,4 +57,6 @@ build
 # bundle statistic
 stats.json
 
+# environment variables
 .env
+.env.production
