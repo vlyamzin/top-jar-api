@@ -1,5 +1,6 @@
 import dotenv from 'dotenv';
 import express from 'express';
+import cors from 'cors';
 import { setup } from './http-client.js';
 import type { Jar, JarBasic } from '../definition/jar.type.js';
 import type { Statement } from '../definition/statement.type';
@@ -12,8 +13,9 @@ const PORT = process.env.PORT || 5000;
 const http = setup(token);
 
 app.use(express.json());
+app.use(cors());
 
-app.get('/jars', async (req, res) => {
+app.get('/api/jars', async (req, res) => {
     try {
         const monoResponse = await http.get('/personal/client-info');
         if (monoResponse.status !== 200) {
