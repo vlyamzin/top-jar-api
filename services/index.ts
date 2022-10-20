@@ -35,7 +35,7 @@ app.get('/api/jars', async (req, res) => {
     }
 });
 //
-app.get('/top-donates', async (req, res) => {
+app.get('/api/top-donates', async (req, res) => {
     try {
         const { jarId, from, count = 5 } = req.query;
         const monoResponse = await http.get(`/personal/statement/${jarId}/${from}`);

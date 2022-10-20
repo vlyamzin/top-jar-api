@@ -45,7 +45,7 @@ export class JarsSelect extends LitElement {
                 : null}
             <ul>
                 ${(this.jars || []).map(jar => {
-                    const link = `/jar/${jar.id}/index.html`;
+                    const link = `/jar?id=${jar.id}`;
 
                     return html`
                         <li><a href="${link}">${jar.title}</a></li>
