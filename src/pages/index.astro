@@ -2,12 +2,13 @@
 import { JarsSelect } from '../components/jars-select';
 import Layout from '../layouts/Layout.astro';
 
-const baseUrl = import.meta.env.REMOTE_URL
+const domain = import.meta.env.REMOTE_URL
+const baseUrl = domain ? `${domain}/api/jars` : '/api/jars'
 ---
 
 <Layout title="Welcome to Astro.">
   <main>
-		<JarsSelect client:load url={`${baseUrl}/api/jars`}></JarsSelect>
+		<JarsSelect client:load url={baseUrl}></JarsSelect>
   </main>
 </Layout>
 

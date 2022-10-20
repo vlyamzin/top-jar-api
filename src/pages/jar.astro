@@ -2,12 +2,13 @@
 import Layout from "../layouts/Layout.astro";
 import {TopDonates} from "../components/top-donates"
 
-const baseUrl = import.meta.env.REMOTE_URL
+const domain = import.meta.env.REMOTE_URL
+const baseUrl = domain ? `${domain}/api/top-donates` : '/api/top-donates'
 ---
 
 <Layout title="Welcome to Astro.">
   <main>
     <h1>Топ донати:</h1>
-    <TopDonates client:load url={`${baseUrl}/api/top-donates`}></TopDonates>
+    <TopDonates client:load url={baseUrl}></TopDonates>
   </main>
 </Layout>
