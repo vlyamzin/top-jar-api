@@ -2,8 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 import {TopDonates} from "../components/top-donates"
 
-const domain = import.meta.env.REMOTE_URL
-const baseUrl = domain ? `${domain}/api/top-donates` : '/api/top-donates'
+const domain = import.meta.env.REMOTE_URL || import.meta.env.SITE
+const baseUrl = domain ? `${domain}api/top-donates` : 'https://top-jar-api.vercel.app/api/top-donates'
 ---
 
 <Layout title="Welcome to Astro.">
