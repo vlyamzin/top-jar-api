@@ -6,7 +6,7 @@ const domain = import.meta.env.REMOTE_URL
 const baseUrl = domain ? `${domain}/api/jars` : '/api/jars'
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="CBR: Топовий донат на ЗСУ">
   <main>
 		<JarsSelect client:load url={baseUrl}></JarsSelect>
   </main>

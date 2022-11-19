@@ -11,11 +11,58 @@ export class TopDonates extends LitElement {
         css`
             :host {
                 display: block;
+                padding: 1rem 2rem;
             }
 
             .error {
                 font-size: 20px;
                 color: red;
+            }
+
+            ol {
+                counter-reset: li; /* Initiate a counter */
+                list-style: none; /* Remove default numbering */
+                *list-style: decimal; /* Keep using default numbering for IE6/7 */
+                font: 15px 'trebuchet MS', 'lucida sans';
+                padding: 0;
+                margin-bottom: 4em;
+                text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+            }
+
+            .rounded-list span {
+                position: relative;
+                display: block;
+                padding: 0.4em 0.4em 0.4em 2em;
+                *padding: 0.4em;
+                margin: 0.5em 0;
+                background: #ddd;
+                color: #444;
+                text-decoration: none;
+                border-radius: 0.3em;
+                font-size: 1.3rem;
+            }
+
+            .rounded-list span:before {
+                content: counter(li);
+                counter-increment: li;
+                position: absolute;
+                left: -1.3em;
+                top: 50%;
+                margin-top: -1.3em;
+                background: #87ceeb;
+                height: 2em;
+                width: 2em;
+                line-height: 2em;
+                border: 0.3em solid #fff;
+                text-align: center;
+                font-weight: bold;
+                border-radius: 2em;
+                transition: all 0.3s ease-out;
+                color: #3a3939;
+            }
+
+            .rounded-list li:nth-child(2n) span:before {
+                background: #f7dc0f;
             }
         `,
     ];
@@ -48,13 +95,13 @@ export class TopDonates extends LitElement {
 
     render() {
         return html`
-            <ul>
+            <ol class="rounded-list">
                 ${(this.donates || []).map(
                     donate => html`
-                        <li>${donate.amount}</li>
+                        <li><span>${donate.amount} - ${donate.comment}</span></li>
                     `,
                 )}
-            </ul>
+            </ol>
 
             ${this.error.length < 2
                 ? html`
