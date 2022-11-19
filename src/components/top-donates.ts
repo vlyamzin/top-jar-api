@@ -5,8 +5,6 @@ import type { Donate } from '../../definition/donate.type';
 
 const tagName = 'top-donates';
 const topDonatesCount = 5;
-// TODO move into env variable
-const fromDate = '2022-10-14T00:00:00';
 
 export class TopDonates extends LitElement {
     static styles = [
@@ -78,10 +76,11 @@ export class TopDonates extends LitElement {
 
     private async fetchData() {
         if (this.jarId && this.url) {
-            const today = new Date(fromDate).getTime();
+            const monthAgo = new Date();
+            monthAgo.setDate(monthAgo.getDate() - 20);
             const api = new URL(this.url);
             api.searchParams.append('jarId', this.jarId);
-            api.searchParams.append('from', today.toString());
+            api.searchParams.append('from', monthAgo.getTime().toString());
             api.searchParams.append('count', topDonatesCount.toString());
 
             try {
